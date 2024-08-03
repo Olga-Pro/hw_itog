@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+{% extends "base_generic.html" %}
+
+   {% block content %}
+   <h2>Reports</h2>
+   <ul>
+       {% for report in object_list %}
+           <li>Report for {{ report.date }} - Sales: ${{ report.sales_data }} - Profit: ${{ report.profit }} - Expenses: ${{ report.expenses }}</li>
+       {% endfor %}
+   </ul>
+   {% endblock %}
