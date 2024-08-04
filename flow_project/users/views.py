@@ -6,4 +6,4 @@ from .forms import CustomUserCreationForm
 class SignUpView(CreateView):
     form_class = CustomUserCreationForm
     success_url = reverse_lazy('login')  # Используем reverse_lazy для отложенного вычисления URL
-    template_name = 'registration/signup.html'
+    template_name = 'users/signup.html'

@@ -1,5 +1,5 @@
 """
-URL configuration for flow_project project.
+URL configuration for flowers_delivery project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.0/topics/http/urls/
@@ -16,18 +16,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from django.views.generic import TemplateView
 from django.conf import settings
 from django.conf.urls.static import static
+# from users import views as user_views
+
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    # path('register/', user_views.register, name='register'),
     path('users/', include('users.urls')),
-    path('accounts/', include('django.contrib.auth.urls')),
-    path('products/', include('products.urls')),
-    path('orders/', include('orders.urls')),
-    path('reviews/', include('reviews.urls')),
-    path('analitics/', include('analitics.urls')),
-    path('', TemplateView.as_view(template_name='home.html'), name='home'),
-    path('', include('flow_project.urls')),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    path('', include('users.urls'))
+]
