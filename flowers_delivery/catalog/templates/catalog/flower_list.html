@@ -1,7 +1,24 @@
-<!DOCTYPE html>
-<h2>Flower Catalog</h2>
-   <ul>
-       {% for flower in flowers %}
-           <li>{{ flower.name }} - ${{ flower.price }}</li>
-       {% endfor %}
-   </ul>
+ <!DOCTYPE html>
+    <html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Каталог цветов</title>
+    </head>
+    <body>
+        <h2>Каталог цветов</h2>
+        <ul>
+            {% for flower in flowers %}
+                <li>
+                    <h3>{{ flower.name }}</h3>
+                    <p>Цена: {{ flower.price }}</p>
+                    {% if flower.image %}
+                        <img src="{{ flower.image.url }}" alt="{{ flower.name }}">
+                    {% else %}
+                        <p>No image available</p>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    </body>
+    </html>
