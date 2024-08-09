@@ -1,6 +1,7 @@
 from django import forms
 from .models import Flower
 
+
 class FlowerForm(forms.ModelForm):
     image_upload = forms.ImageField(required=False, label='Upload Image')
 

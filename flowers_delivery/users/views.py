@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from .forms import CustomUserCreationForm, CustomAuthenticationForm
 from django.contrib.auth.views import LoginView
+from django.urls import reverse_lazy
 
 def register(request):
     if request.method == 'POST':
@@ -23,3 +24,4 @@ def register(request):
 class CustomLoginView(LoginView):
     authentication_form = CustomAuthenticationForm
     template_name = 'users/login.html'
+    success_url = reverse_lazy('flowers')
