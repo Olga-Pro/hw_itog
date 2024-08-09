@@ -3,7 +3,7 @@ from django.db import models
 
 class CustomUser(AbstractUser):
     # Поле ID автоматически добавляется Django как Primary Key
-    userName = None
+    username = models.CharField(max_length=150, unique=False, null=True, blank=True)
     first_name = models.CharField(max_length=150, blank=True, null=True, verbose_name='Имя')
     email = models.EmailField(unique=True, verbose_name='Email')
     phone = models.CharField(max_length=15, blank=True, null=True, verbose_name='Телефон')
